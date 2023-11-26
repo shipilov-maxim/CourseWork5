@@ -98,7 +98,7 @@ class DBManager:
             with con.cursor() as cur:
                 cur.execute(f"""
                 SELECT employees.name, vacancies.name, salary_from, salary_to, alternate_url FROM vacancies, employees
-                WHERE vacancies.name LIKE '%{keyword}%'""")
+                WHERE vacancies.name LIKE '%{keyword[1:]}%'""")
                 result = cur.fetchall()
                 for item in result:
                     print(item)
